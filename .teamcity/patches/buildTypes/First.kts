@@ -11,7 +11,7 @@ accordingly, and delete the patch script.
 changeBuildType(RelativeId("First")) {
     params {
         add {
-            checkbox("StartStep", "", label = "Label Start", description = "Start step one?", display = ParameterDisplay.PROMPT,
+            checkbox("StartStep", "true", label = "Label Start", description = "Start step one?", display = ParameterDisplay.PROMPT,
                       checked = "true", unchecked = "false")
         }
     }
