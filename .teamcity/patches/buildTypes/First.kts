@@ -1,6 +1,8 @@
 package patches.buildTypes
 
 import jetbrains.buildServer.configs.kotlin.*
+import jetbrains.buildServer.configs.kotlin.buildSteps.ScriptBuildStep
+import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.ui.*
 
 /*
@@ -13,6 +15,23 @@ changeBuildType(RelativeId("First")) {
         add {
             checkbox("StartStep", "true", label = "Label Start", description = "Start step one?", display = ParameterDisplay.PROMPT,
                       checked = "true", unchecked = "false")
+        }
+    }
+
+    expectSteps {
+        script {
+            name = "FirstStep"
+            id = "FirstStep"
+            scriptContent = """echo "Hello" > /tmp/testFile.txt"""
+        }
+    }
+    steps {
+        update<ScriptBuildStep>(0) {
+            clearConditions()
+
+            conditions {
+                equals("StartStep", "true")
+            }
         }
     }
 }
