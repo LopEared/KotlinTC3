@@ -16,6 +16,9 @@ changeBuildType(RelativeId("First")) {
             checkbox("StartStep", "true", label = "Label Start", description = "Start step one?", display = ParameterDisplay.PROMPT,
                       checked = "true", unchecked = "false")
         }
+        add {
+            param("Second STER", "")
+        }
     }
 
     expectSteps {
