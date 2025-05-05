@@ -17,7 +17,7 @@ changeBuildType(RelativeId("First")) {
                       checked = "true", unchecked = "false")
         }
         add {
-            checkbox("Second STER", "true",
+            checkbox("SecondStep", "true",
                       checked = "true")
         }
     }
